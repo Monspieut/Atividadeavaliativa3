@@ -9,6 +9,8 @@ public class Cliente {
     private int diasparadevolucao;
     private ArrayList<Locacao> qtdlocacoescliente;
 
+    public static BancoDeDados<Cliente> clientes = new BancoDeDados<>();
+
     public Cliente(int id, String nome, Date dtnascimento, String cpf, int diasparadevolucao) {
         this.id = id;
         this.nome = nome;
@@ -16,6 +18,8 @@ public class Cliente {
         this.cpf = cpf;
         this.diasparadevolucao = diasparadevolucao;
         this.qtdlocacoescliente = new ArrayList<>();
+
+        clientes.insertValue(this);
 
     }
 
@@ -66,6 +70,15 @@ public class Cliente {
 
     public ArrayList<Locacao> getQtdlocacoescliente() {
         return this.qtdlocacoescliente;
+    }
+
+    @Override
+    public String toString() {
+        return "\nId do cliente:" + getId() + "\nNome do cliente:" + getNome() + "\nData de nascimento do cliente: "
+                + getDtnascimento() + "\nCpf do cliente: " + getCpt()
+                + "\nDias restantes para a devolução do veiculos: " + getDiasparadevolucao()
+                + "\nQuantidade de locações do cliente: " + getQtdlocacoescliente();
+
     }
 
 }

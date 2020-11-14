@@ -6,11 +6,15 @@ public class Veiculoslocados {
     private int idveiculopesado;
     private ArrayList<Locacao> qtdveiculoslocacao;
 
+    public static BancoDeDados<Veiculoslocados> veiclocados = new BancoDeDados<>();
+
     public Veiculoslocados(int idlocacao, int idveiculoleve, int idveiculopesado) {
         this.idlocacao = idlocacao;
         this.idveiculoleve = idveiculoleve;
         this.idveiculopesado = idveiculopesado;
         this.qtdveiculoslocacao = new ArrayList<>();
+
+        veiclocados.insertValue(this);
 
     }
 
@@ -46,5 +50,12 @@ public class Veiculoslocados {
 
     public ArrayList<Locacao> getQtdveiculoslocados() {
         return this.qtdveiculoslocacao;
+    }
+
+    @Override
+    public String toString() {
+        return "\nId do Veiculo Locado:" + getIdlocacao() + "\nId se for veiculo categoria leve: " + getIdveiculoleve()
+                + "\nId se for veiculo categoria pesadp: " + getIdveiculopesado();
+
     }
 }

@@ -81,4 +81,8 @@ public class Cliente {
 
     }
 
+    public void QtdeVeiculosLocados() { // Método para apresentar a quantidade de veiculos Locados
+
+        System.out.println("\nA quantidade de locações foi de" + this.qtdlocacoescliente);
+    }
 }

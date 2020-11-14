@@ -70,4 +70,10 @@ public class Locacao {
 
     }
 
+    public void QtdeVeiculosLocados() {
+        System.out.println( // Método que Lista a quantidade de veiculos locados
+                "\nA quantidade de veiculos locados foi " + this.qtdlocacoescliente.size());
+
+    }
+
 }

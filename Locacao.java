@@ -1,5 +1,6 @@
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Calendar;
 
 public class Locacao {
     private int id;
@@ -74,6 +75,27 @@ public class Locacao {
         System.out.println( // Método que Lista a quantidade de veiculos locados
                 "\nA quantidade de veiculos locados foi " + this.qtdlocacoescliente.size());
 
+    }
+
+    public double Valortotal() { // Aqui será o método para calcular o total da locação
+        
+        double total = 0.0;
+
+        for (Veiculoslocados veiculoslocados : qtdlocacoescliente) {
+            total += veiculoslocados.getVeiculoslevesloc()
+                    + veiculoslocados.getVeiculospesadosloc();
+        }
+        return total;
+    }
+
+    public Date CalcularDataLocacao() { // Aqui será o método para calcular por dias de locação -- INCOMPLETO
+
+        Calendar calendario = Calendar.getInstance();
+        calendario.setTime(this.getDtlocacao());
+        calendario.add(Calendar.DATE,0);
+        return calendario.getTime();
+
+     
     }
 
 }

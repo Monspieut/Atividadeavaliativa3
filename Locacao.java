@@ -7,7 +7,7 @@ public class Locacao {
     private int iddocliente;
     private Date dtlocacao;
     private Date dtdevolucacao;
-    private ArrayList<Cliente> qtdlocacoescliente;
+    private ArrayList<Veiculoslocados> qtdVeiculosLocados;
 
     public static BancoDeDados<Locacao> locacoes = new BancoDeDados<>();
 
@@ -16,7 +16,7 @@ public class Locacao {
         this.iddocliente = iddocliente;
         this.dtlocacao = dtlocacao;
         this.dtdevolucacao = dtdevolucao;
-        this.qtdlocacoescliente = new ArrayList<>();
+        this.qtdVeiculosLocados = new ArrayList<>();
 
         locacoes.insertValue(this);
     }
@@ -38,8 +38,8 @@ public class Locacao {
         this.dtdevolucacao = dtdevolucao;
     }
 
-    public void setQtdlocacoescliente(Cliente qtdlocacoescliente) {
-        this.qtdlocacoescliente.add(qtdlocacoescliente);
+    public void setqtdVeiculosLocados(Veiculoslocados qtdVeiculosLocados) {
+        this.qtdVeiculosLocados.add(qtdVeiculosLocados);
     }
 
     // Gets
@@ -59,43 +59,41 @@ public class Locacao {
         return dtdevolucacao;
     }
 
-    public ArrayList<Cliente> getQtdlocacoescliente() {
-        return this.qtdlocacoescliente;
+    public ArrayList<Veiculoslocados> getqtdVeiculosLocados() {
+        return this.qtdVeiculosLocados;
     }
 
     @Override
     public String toString() {
         return "\nId Locação: " + getId() + "\nId do cliente: " + getIddocliente() + "\nData de Locação: "
                 + getDtlocacao() + "\nData de Devolução: " + getDtdevolucao() + "\nQuantidade de locações do cliente: "
-                + getQtdlocacoescliente();
+                + getqtdVeiculosLocados();
 
     }
 
     public void QtdeVeiculosLocados() {
         System.out.println( // Método que Lista a quantidade de veiculos locados
-                "\nA quantidade de veiculos locados foi " + this.qtdlocacoescliente.size());
+                "\nA quantidade de veiculos locados foi " + this.qtdVeiculosLocados.size());
 
     }
 
-    public double Valortotal() { // Aqui será o método para calcular o total da locação
-        
-        double total = 0.0;
+    public double valortotal() { // Aqui será o método para calcular o total da locação
 
-        for (Veiculoslocados veiculoslocados : qtdlocacoescliente) {
-            total += veiculoslocados.getVeiculoslevesloc()
-                    + veiculoslocados.getVeiculospesadosloc();
+        double soma = 0.0;
+
+        for (Veiculoslocados veiculoslocados : qtdVeiculosLocados) {
+            soma += veiculoslocados.getIdveiculoleve() + veiculoslocados.getIdveiculopesado();
         }
-        return total;
+        return this.valortotal();
     }
 
     public Date CalcularDataLocacao() { // Aqui será o método para calcular por dias de locação -- INCOMPLETO
 
         Calendar calendario = Calendar.getInstance();
         calendario.setTime(this.getDtlocacao());
-        calendario.add(Calendar.DATE,0);
+        calendario.add(Calendar.DATE, 0);
         return calendario.getTime();
 
-     
     }
 
 }

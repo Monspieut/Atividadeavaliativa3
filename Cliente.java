@@ -7,7 +7,7 @@ public class Cliente {
     private Date dtnascimento;
     private String cpf;
     private int diasparadevolucao;
-    private ArrayList<Locacao> qtdlocacoescliente;
+    private ArrayList<Locacao> qtdLocacoesCliente;
 
     public static BancoDeDados<Cliente> clientes = new BancoDeDados<>();
 
@@ -17,7 +17,7 @@ public class Cliente {
         this.dtnascimento = dtnascimento;
         this.cpf = cpf;
         this.diasparadevolucao = diasparadevolucao;
-        this.qtdlocacoescliente = new ArrayList<>();
+        this.qtdLocacoesCliente = new ArrayList<>();
 
         clientes.insertValue(this);
 
@@ -44,7 +44,7 @@ public class Cliente {
     }
 
     public void setQtdlocacoescliente(Locacao qtdlocacoescliente) {
-        this.qtdlocacoescliente.add(qtdlocacoescliente);
+        this.qtdLocacoesCliente.add(qtdlocacoescliente);
     }
 
     // Gets
@@ -69,7 +69,7 @@ public class Cliente {
     }
 
     public ArrayList<Locacao> getQtdlocacoescliente() {
-        return this.qtdlocacoescliente;
+        return this.qtdLocacoesCliente;
     }
 
     @Override
@@ -83,6 +83,6 @@ public class Cliente {
 
     public void QtdeVeiculosLocados() { // Método para apresentar a quantidade de veiculos Locados
 
-        System.out.println("\nA quantidade de locações foi de" + this.qtdlocacoescliente);
+        System.out.println("\nA quantidade de locações foi de" + this.qtdLocacoesCliente);
     }
 }

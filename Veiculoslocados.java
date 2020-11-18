@@ -1,10 +1,8 @@
-import java.util.ArrayList;
-
 public class Veiculoslocados {
     private int idlocacao;
     private int idveiculoleve;
     private int idveiculopesado;
-    private ArrayList<Locacao> qtdveiculoslocacao;
+    
 
     public static BancoDeDados<Veiculoslocados> veiclocados = new BancoDeDados<>();
 
@@ -12,7 +10,7 @@ public class Veiculoslocados {
         this.idlocacao = idlocacao;
         this.idveiculoleve = idveiculoleve;
         this.idveiculopesado = idveiculopesado;
-        this.qtdveiculoslocacao = new ArrayList<>();
+     
 
         veiclocados.insertValue(this);
 
@@ -31,10 +29,7 @@ public class Veiculoslocados {
         this.idveiculopesado = idveiculopesado;
     }
 
-    public void setQtdveiculoslocados(Locacao qtdveiculoslocacao) {
-        this.qtdveiculoslocacao.add(qtdveiculoslocacao);
-    }
-
+   
     // Gets
     public int getIdlocacao() {
         return idlocacao;
@@ -48,9 +43,6 @@ public class Veiculoslocados {
         return idveiculopesado;
     }
 
-    public ArrayList<Locacao> getQtdveiculoslocados() {
-        return this.qtdveiculoslocacao;
-    }
 
     @Override
     public String toString() {

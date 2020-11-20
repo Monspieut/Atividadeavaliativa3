@@ -104,7 +104,6 @@ public class Locacao {
         calendario.setTime(getDtdevolucao());
         calendario.add(Calendar.DATE, qtddedias);
         return calendario.getTime();
-
     }
 
 }

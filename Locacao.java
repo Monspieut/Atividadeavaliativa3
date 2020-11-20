@@ -4,21 +4,21 @@ import java.util.Calendar;
 
 public class Locacao {
     private int id;
-    private int iddocliente;
-    private Date dtlocacao;
-    private Date dtdevolucacao;
-    private ArrayList<Veiculoslocados> qtdVeiculosLocados;
+    private int idDoCliente;
+    private Date dtLocacao;
+    private Date dtDevolucao;
+    private ArrayList<Veiculoslocados> veiculosLocados;
 
-    public static BancoDeDados<Locacao> locacoes = new BancoDeDados<>();
+    public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>();
 
-    public Locacao(int id, int iddocliente, Date dtlocacao, Date dtdevolucao) {
+    public Locacao(int id, int idDocliente, Date dtLocacao, Date dtDevolucao) {
         this.id = id;
-        this.iddocliente = iddocliente;
-        this.dtlocacao = dtlocacao;
-        this.dtdevolucacao = dtdevolucao;
-        this.qtdVeiculosLocados = new ArrayList<>();
+        this.idDoCliente = idDocliente;
+        this.dtLocacao = dtLocacao;
+        this.dtDevolucao = dtDevolucao;
+        this.veiculosLocados = new ArrayList<>();
 
-        locacoes.insertValue(this);
+        bdLocacoes.insertValue(this);
     }
 
     // Sets
@@ -26,20 +26,20 @@ public class Locacao {
         this.id = id;
     }
 
-    public void setIddocliente(int iddocliente) {
-        this.iddocliente = iddocliente;
+    public void setIddocliente(int idDoCliente) {
+        this.idDoCliente = idDoCliente;
     }
 
-    public void setDtlocacao(Date dtlocacao) {
-        this.dtlocacao = dtlocacao;
+    public void setDtlocacao(Date dtLocacao) {
+        this.dtLocacao = dtLocacao;
     }
 
-    public void setDtdevolucacao(Date dtdevolucao) {
-        this.dtdevolucacao = dtdevolucao;
+    public void setDtdevolucacao(Date dtDevolucao) {
+        this.dtDevolucao = dtDevolucao;
     }
 
     public void setqtdVeiculosLocados(Veiculoslocados qtdVeiculosLocados) {
-        this.qtdVeiculosLocados.add(qtdVeiculosLocados);
+        this.veiculosLocados.add(qtdVeiculosLocados);
     }
 
     // Gets
@@ -48,19 +48,19 @@ public class Locacao {
     }
 
     public int getIddocliente() {
-        return iddocliente;
+        return idDoCliente;
     }
 
     public Date getDtlocacao() {
-        return dtlocacao;
+        return dtLocacao;
     }
 
     public Date getDtdevolucao() {
-        return dtdevolucacao;
+        return dtDevolucao;
     }
 
     public ArrayList<Veiculoslocados> getqtdVeiculosLocados() {
-        return this.qtdVeiculosLocados;
+        return this.veiculosLocados;
     }
 
     @Override
@@ -73,25 +73,36 @@ public class Locacao {
 
     public void QtdeVeiculosLocados() {
         System.out.println( // Método que Lista a quantidade de veiculos locados
-                "\nA quantidade de veiculos locados foi " + this.qtdVeiculosLocados.size());
+                "\nA quantidade de veiculos locados foi " + this.veiculosLocados.size() * 2);
 
     }
 
-    public double valortotal() { // Aqui será o método para calcular o total da locação
+    public double valorTotal() { // Método para calcular o total da locação
 
         double soma = 0.0;
 
-        for (Veiculoslocados veiculoslocados : qtdVeiculosLocados) {
-            soma += veiculoslocados.getIdveiculoleve() + veiculoslocados.getIdveiculopesado();
+        for (Veiculoslocados veiculoslocados : veiculosLocados) {
+
+            try {
+                soma += Veiculosleves.getVeiculo(veiculoslocados.getIdVeiculoLeve()).getValorParaLocacao();
+            } catch (Exception e) {
+                soma += 0;
+            }
+            try {
+                soma += Veiculospesados.getVeiculo(veiculoslocados.getIdVeiculoPesado()).getValorParaLocacao();
+            } catch (Exception e) {
+                soma += 0;
+            }
         }
-        return this.valortotal();
+        return soma;
     }
 
-    public Date CalcularDataLocacao() { // Aqui será o método para calcular por dias de locação -- INCOMPLETO
+    public Date CalcularDataLocacao(int qtddedias) { // Aqui será o método para calcular por dias de locação -- INCOMPLETO
 
+    
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(this.getDtlocacao());
-        calendario.add(Calendar.DATE, 0);
+        calendario.setTime(getDtdevolucao());
+        calendario.add(Calendar.DATE, qtddedias);
         return calendario.getTime();
 
     }

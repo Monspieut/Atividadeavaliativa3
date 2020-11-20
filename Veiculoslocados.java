@@ -1,53 +1,49 @@
 public class Veiculoslocados {
-    private int idlocacao;
-    private int idveiculoleve;
-    private int idveiculopesado;
-    
+    private int idLocacao;
+    private int idVeiculoLeve;
+    private int idVeiculoPesado;
 
-    public static BancoDeDados<Veiculoslocados> veiclocados = new BancoDeDados<>();
+    public static BancoDeDados<Veiculoslocados> bdVeicLocados = new BancoDeDados<>();
 
-    public Veiculoslocados(int idlocacao, int idveiculoleve, int idveiculopesado) {
-        this.idlocacao = idlocacao;
-        this.idveiculoleve = idveiculoleve;
-        this.idveiculopesado = idveiculopesado;
-     
+    public Veiculoslocados(int idLocacao, int idVeiculoLeve, int idVeiculoPesado) {
+        this.idLocacao = idLocacao;
+        this.idVeiculoLeve = idVeiculoLeve;
+        this.idVeiculoPesado = idVeiculoPesado;
 
-        veiclocados.insertValue(this);
+        bdVeicLocados.insertValue(this);
 
     }
 
     // Sets
-    public void setIdlocacao(int idlocacao) {
-        this.idlocacao = idlocacao;
+    public void setIdLocacao(int idLocacao) {
+        this.idLocacao = idLocacao;
     }
 
-    public void setIdveiculoleve(int idveiculoleve) {
-        this.idveiculoleve = idveiculoleve;
+    public void setIdVeiculoLeve(int idVeiculoLeve) {
+        this.idVeiculoLeve = idVeiculoLeve;
     }
 
-    public void setIdveiculopesado(int idveiculopesado) {
-        this.idveiculopesado = idveiculopesado;
+    public void setIdVeiculoPesado(int idVeiculoPesado) {
+        this.idVeiculoPesado = idVeiculoPesado;
     }
 
-   
     // Gets
-    public int getIdlocacao() {
-        return idlocacao;
+    public int getIdLocacao() {
+        return idLocacao;
     }
 
-    public int getIdveiculoleve() {
-        return idveiculoleve;
+    public int getIdVeiculoLeve() {
+        return idVeiculoLeve;
     }
 
-    public int getIdveiculopesado() {
-        return idveiculopesado;
+    public int getIdVeiculoPesado() {
+        return idVeiculoPesado;
     }
-
 
     @Override
     public String toString() {
-        return "\nId do Veiculo Locado:" + getIdlocacao() + "\nId se for veiculo categoria leve: " + getIdveiculoleve()
-                + "\nId se for veiculo categoria pesadp: " + getIdveiculopesado();
+        return "\nId do Veiculo Locado:" + getIdLocacao() + "\nId se for veiculo categoria leve: " + getIdVeiculoLeve()
+                + "\nId se for veiculo categoria pesadp: " + getIdVeiculoPesado();
 
     }
 }

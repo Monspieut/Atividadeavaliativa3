@@ -3,17 +3,17 @@ import java.util.ArrayList;
 public class Veiculospesados extends Veiculo {
     private int id;
     private String restricoes;
-    private ArrayList<Veiculoslocados> veiculospesadosloc;
+    private ArrayList<Veiculoslocados> veiculosPesadosLoc;
 
-    public static BancoDeDados<Veiculospesados> veicpesados = new BancoDeDados<>();
+    public static BancoDeDados<Veiculospesados> bdVeicPesados = new BancoDeDados<>();
 
-    public Veiculospesados(int id, String restricoes, String marca, String modelo, int ano, double valorparalocacao) {
-        super(marca, modelo, ano, valorparalocacao);
+    public Veiculospesados(int id, String restricoes, String marca, String modelo, int ano, double valorParaLocacao) {
+        super(marca, modelo, ano, valorParaLocacao);
         this.id = id;
         this.restricoes = restricoes;
-        this.veiculospesadosloc = new ArrayList<>();
+        this.veiculosPesadosLoc = new ArrayList<>();
 
-        veicpesados.insertValue(this);
+        bdVeicPesados.insertValue(this);
 
     }
 
@@ -26,8 +26,8 @@ public class Veiculospesados extends Veiculo {
         this.restricoes = restricoes;
     }
 
-    public void setVeiculospesadosloc(Veiculoslocados veiculospesadosloc) {
-        this.veiculospesadosloc.add(veiculospesadosloc);
+    public void setveiculosPesadosLoc(Veiculoslocados veiculosPesadosLoc) {
+        this.veiculosPesadosLoc.add(veiculosPesadosLoc);
     }
 
     // Gets
@@ -39,9 +39,13 @@ public class Veiculospesados extends Veiculo {
         return restricoes;
     }
 
-    public ArrayList<Veiculoslocados> getVeiculospesadosloc() {
-        return this.veiculospesadosloc;
+    public ArrayList<Veiculoslocados> getveiculosPesadosLoc() {
+        return this.veiculosPesadosLoc;
     }
+
+    public static Veiculospesados getVeiculo(int id) throws Exception{
+        return bdVeicPesados.getValor(id);
+     }
 
     @Override
     public String toString() {

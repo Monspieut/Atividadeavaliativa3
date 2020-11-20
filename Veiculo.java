@@ -4,16 +4,12 @@ public abstract class Veiculo {
     protected int ano;
     protected double valorParaLocacao;
 
-    public static BancoDeDados<Veiculo> veiculos = new BancoDeDados<>(); // Utilizando Generic para a conexão com o
-                                                                         // banco de dados
-
     public Veiculo(String marca, String modelo, int ano, double valorParaLocacao) { // Criando os construtores
         this.marca = marca;
         this.modelo = modelo;
         this.ano = ano;
         this.valorParaLocacao = valorParaLocacao;
 
-        veiculos.insertValue(this);
     }
 
     // Sets
@@ -29,7 +25,7 @@ public abstract class Veiculo {
         this.ano = ano;
     }
 
-    public void setValorparalocacao(double valorParaLocacao) {
+    public void setValorParaLocacao(double valorParaLocacao) {
         this.valorParaLocacao = valorParaLocacao;
     }
 
@@ -46,14 +42,14 @@ public abstract class Veiculo {
         return ano;
     }
 
-    public double getValorparalocacao() {
+    public double getValorParaLocacao() {
         return valorParaLocacao;
     }
 
     @Override
     public String toString() {
         return "\nMarca do Veiculo:" + getMarca() + "\nModelo do Veiculo: " + getModelo() + "\nAno do Veiculo: "
-                + getAno() + "\nValor para locação do Veiculo: " + getValorparalocacao();
+                + getAno() + "\nValor para locação do Veiculo: " + getValorParaLocacao();
 
     }
 }

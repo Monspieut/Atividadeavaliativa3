@@ -3,18 +3,18 @@ import java.util.ArrayList;
 public class Veiculosleves extends Veiculo {
     private int id;
     private String cor;
-    private ArrayList<Veiculoslocados> veiculoslevesloc; // Utilizando o ArrayList para fazer o relacionamento com outra
+    private ArrayList<Veiculoslocados> locacaoVeiculosLeves; // Utilizando o ArrayList para fazer o relacionamento com outra
                                                          // classe
 
-    public static BancoDeDados<Veiculosleves> veicleves = new BancoDeDados<>();
+    public static BancoDeDados<Veiculosleves> bdVeicLeves = new BancoDeDados<>();
 
     public Veiculosleves(int id, String cor, String marca, String modelo, int ano, double valorparalocacao) {
         super(marca, modelo, ano, valorparalocacao);
         this.id = id;
         this.cor = cor;
-        this.veiculoslevesloc = new ArrayList<>();
+        this.locacaoVeiculosLeves = new ArrayList<>();
 
-        veicleves.insertValue(this);
+        bdVeicLeves.insertValue(this);
     }
 
     // Sets
@@ -26,8 +26,8 @@ public class Veiculosleves extends Veiculo {
         this.cor = cor;
     }
 
-    public void setVeiculoslevesloc(Veiculoslocados veiculoslevesloc) {
-        this.veiculoslevesloc.add(veiculoslevesloc);
+    public void setLocacaoVeiculosLeves(Veiculoslocados locacaoVeiculosLeves) {
+        this.locacaoVeiculosLeves.add(locacaoVeiculosLeves);
     }
 
     // Gets
@@ -39,8 +39,11 @@ public class Veiculosleves extends Veiculo {
         return cor;
     }
 
-    public ArrayList<Veiculoslocados> getVeiculoslevesloc() {
-        return this.veiculoslevesloc;
+    public ArrayList<Veiculoslocados> getLocacaoVeiculosLeves() {
+        return this.locacaoVeiculosLeves;
+    }
+    public static Veiculosleves getVeiculo(int id) throws Exception{
+       return bdVeicLeves.getValor(id);
     }
 
     @Override

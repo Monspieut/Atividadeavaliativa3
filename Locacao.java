@@ -7,6 +7,7 @@ public class Locacao {
     private int idDoCliente;
     private Date dtLocacao;
     private Date dtDevolucao;
+    private Cliente cliente;
     private ArrayList<Veiculoslocados> veiculosLocados;
 
     public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>();
@@ -16,6 +17,7 @@ public class Locacao {
         this.idDoCliente = idDocliente;
         this.dtLocacao = dtLocacao;
         this.dtDevolucao = dtDevolucao;
+        this.cliente = cliente;
         this.veiculosLocados = new ArrayList<>();
 
         bdLocacoes.insertValue(this);
@@ -41,6 +43,10 @@ public class Locacao {
     public void setqtdVeiculosLocados(Veiculoslocados qtdVeiculosLocados) {
         this.veiculosLocados.add(qtdVeiculosLocados);
     }
+    // public void setLocacoes(Cliente cliente) {
+    // this.cliente.add(cliente); Tem que passar como ligação com locação setando
+    // cliente aqui
+    // }
 
     // Gets
     public int getId() {
@@ -97,12 +103,12 @@ public class Locacao {
         return soma;
     }
 
-    public Date CalcularDataLocacao(int qtddedias) { // Aqui será o método para calcular por dias de locação -- INCOMPLETO
+    public static Date CalcularDataLocacao(Date date, int qtdDeDias) { // Método para calcular por dias de locação --
+        // INCOMPLETO
 
-    
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(getDtdevolucao());
-        calendario.add(Calendar.DATE, qtddedias);
+        calendario.setTime(date);
+        calendario.add(Calendar.DATE, qtdDeDias);
         return calendario.getTime();
     }
 

@@ -5,7 +5,7 @@ import java.util.Calendar;
 public class Menu {
     public static void main(String[] args) {
 
-        Scanner menu = new Scanner(System.in);
+        Scanner scanner = new Scanner(System.in);
         while (true) {
             System.out.println("\n\n            Sistema de Locação de Veiculos ");
             System.out.println("\n                 =========================");
@@ -18,7 +18,7 @@ public class Menu {
             System.out.println("                      0 - Sair          ");
             System.out.println("                   ========================\n");
 
-            int opcao = menu.nextInt();
+            int opcao = scanner.nextInt();
             switch (opcao) {
                 case 1:
                     System.out.println(" CADASTRAR CLIENTE: ");
@@ -35,12 +35,13 @@ public class Menu {
                         System.out.println("Digite a data de nascimento do cliente (dd/mm/aaaa): ");
                         String stringDate = scanner.nextLine();
                         try {
-                            dtnascimento = UseCalendar.parseDate(stringDate);
+                       
                             dateOK = true;
                         } catch (Exception e) {
                             System.out.println("Data em formato inválido, digite novamente.");
                         }
                     } while (!dateOK);
+                    
 
                     System.out.println("Digite os dias de devolução do cliente: ");
                     int diasparadevolucao = scanner.nextInt();
@@ -78,7 +79,7 @@ public class Menu {
                     System.out.println("Opção Inválida!");
                     break;
             }
-            menu.close();
+            scanner.close();
 
         }
     }

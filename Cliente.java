@@ -4,19 +4,19 @@ import java.util.Date;
 public class Cliente {
     private int id;
     private String nome;
-    private Date dtnascimento;
+    private Date dtNascimento;
     private String cpf;
-    private int diasparadevolucao;
+    private int diasParaDevolucao;
     private ArrayList<Locacao> qtdLocacoesCliente;
 
     public static BancoDeDados<Cliente> clientes = new BancoDeDados<>();
 
-    public Cliente(int id, String nome, Date dtnascimento, String cpf, int diasparadevolucao) {
+    public Cliente(int id, String nome, Date dtNascimento, String cpf, int diasParaDevolucao) {
         this.id = id;
         this.nome = nome;
-        this.dtnascimento = dtnascimento;
+        this.dtNascimento = dtNascimento;
         this.cpf = cpf;
-        this.diasparadevolucao = diasparadevolucao;
+        this.diasParaDevolucao = diasParaDevolucao;
         this.qtdLocacoesCliente = new ArrayList<>();
 
         clientes.insertValue(this);
@@ -32,7 +32,7 @@ public class Cliente {
     }
 
     public void setDtnascimento(Date dtnascimento) {
-        this.dtnascimento = dtnascimento;
+        this.dtNascimento = dtnascimento;
     }
 
     public void setCpf(String cpf) {
@@ -40,7 +40,7 @@ public class Cliente {
     }
 
     public void setDiasparadevolucao(int diasparadevolucao) {
-        this.diasparadevolucao = diasparadevolucao;
+        this.diasParaDevolucao = diasparadevolucao;
     }
 
     public void setQtdlocacoescliente(Locacao qtdlocacoescliente) {
@@ -57,7 +57,7 @@ public class Cliente {
     }
 
     public Date getDtnascimento() {
-        return dtnascimento;
+        return dtNascimento;
     }
 
     public String getCpt() {
@@ -65,7 +65,7 @@ public class Cliente {
     }
 
     public int getDiasparadevolucao() {
-        return diasparadevolucao;
+        return diasParaDevolucao;
     }
 
     public ArrayList<Locacao> getQtdlocacoescliente() {

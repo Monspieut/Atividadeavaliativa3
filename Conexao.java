@@ -4,8 +4,6 @@ import java.sql.SQLException;
 import java.sql.Connection;
 import java.util.Date;
 
-import javax.management.RuntimeErrorException;
-
 public class Conexao {
     public static Connection getConnection() throws Exception {
         try {

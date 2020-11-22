@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 public class Cliente {
-    private int id;
+    private int idCliente;
     private String nome;
     private Date dtNascimento;
     private String cpf;
@@ -11,8 +11,8 @@ public class Cliente {
 
     public static BancoDeDados<Cliente> clientes = new BancoDeDados<>();
 
-    public Cliente(int id, String nome, Date dtNascimento, String cpf, int diasParaDevolucao) {
-        this.id = id;
+    public Cliente(int idCliente, String nome, Date dtNascimento, String cpf, int diasParaDevolucao) {
+        this.idCliente = idCliente;
         this.nome = nome;
         this.dtNascimento = dtNascimento;
         this.cpf = cpf;
@@ -23,8 +23,8 @@ public class Cliente {
 
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setIdCliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public void setNome(String nome) {
@@ -48,8 +48,8 @@ public class Cliente {
     }
 
     // Gets
-    public int getId() {
-        return id;
+    public int getIdCliente() {
+        return idCliente;
     }
 
     public String getNome() {
@@ -74,7 +74,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "\nId do cliente:" + getId() + "\nNome do cliente:" + getNome() + "\nData de nascimento do cliente: "
+        return "\nId do cliente:" + getIdCliente() + "\nNome do cliente:" + getNome() + "\nData de nascimento do cliente: "
                 + getDtnascimento() + "\nCpf do cliente: " + getCpt()
                 + "\nDias restantes para a devolução do veiculos: " + getDiasparadevolucao()
                 + "\nQuantidade de locações do cliente: " + getQtdlocacoescliente();

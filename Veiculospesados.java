@@ -1,15 +1,15 @@
 import java.util.ArrayList;
 
 public class Veiculospesados extends Veiculo {
-    private int id;
+    private int idVeiculoPesado;
     private String restricoes;
     private ArrayList<Veiculoslocados> veiculosPesadosLoc;
 
     public static BancoDeDados<Veiculospesados> bdVeicPesados = new BancoDeDados<>();
 
-    public Veiculospesados(int id, String restricoes, String marca, String modelo, int ano, double valorParaLocacao) {
+    public Veiculospesados(int idVeiculoPesado, String restricoes, String marca, String modelo, int ano, double valorParaLocacao) {
         super(marca, modelo, ano, valorParaLocacao);
-        this.id = id;
+        this.idVeiculoPesado = idVeiculoPesado;
         this.restricoes = restricoes;
         this.veiculosPesadosLoc = new ArrayList<>();
 
@@ -18,8 +18,8 @@ public class Veiculospesados extends Veiculo {
     }
 
     // Sets
-    public void setId(int id) {
-        this.id = id;
+    public void setIdVeiculoPesado(int idVeiculoPesado) {
+        this.idVeiculoPesado = idVeiculoPesado;
     }
 
     public void setRestricoes(String restricoes) {
@@ -31,8 +31,8 @@ public class Veiculospesados extends Veiculo {
     }
 
     // Gets
-    public int getId() {
-        return id;
+    public int getIdVeiculoPesado() {
+        return idVeiculoPesado;
     }
 
     public String getRestricoes() {
@@ -49,7 +49,7 @@ public class Veiculospesados extends Veiculo {
 
     @Override
     public String toString() {
-        return "\nId do Veiculo Pesado:" + getId() + "\nPossiveis Restrições: " + getRestricoes();
+        return "\nId do Veiculo Pesado:" + getIdVeiculoPesado() + "\nPossiveis Restrições: " + getRestricoes();
 
     }
 }

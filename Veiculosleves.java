@@ -1,16 +1,16 @@
 import java.util.ArrayList;
 
 public class Veiculosleves extends Veiculo {
-    private int id;
+    private int idVeiculoLeve;
     private String cor;
     private ArrayList<Veiculoslocados> locacaoVeiculosLeves; // Utilizando o ArrayList para fazer o relacionamento com outra
                                                          // classe
 
     public static BancoDeDados<Veiculosleves> bdVeicLeves = new BancoDeDados<>();
 
-    public Veiculosleves(int id, String cor, String marca, String modelo, int ano, double valorparalocacao) {
-        super(marca, modelo, ano, valorparalocacao);
-        this.id = id;
+    public Veiculosleves(int idVeiculoLeve, String cor, String marca, String modelo, int ano, double valorParaLocacao) {
+        super(marca, modelo, ano, valorParaLocacao);
+        this.idVeiculoLeve = idVeiculoLeve;
         this.cor = cor;
         this.locacaoVeiculosLeves = new ArrayList<>();
 
@@ -18,8 +18,8 @@ public class Veiculosleves extends Veiculo {
     }
 
     // Sets
-    public void setId(int id) { 
-        this.id = id;
+    public void setIdVeiculoLeve(int idVeiculoLeve) { 
+        this.idVeiculoLeve = idVeiculoLeve;
     }
 
     public void setCor(String cor) {
@@ -31,8 +31,8 @@ public class Veiculosleves extends Veiculo {
     }
 
     // Gets
-    public int getId() {
-        return id;
+    public int getIdVeiculoLeve() {
+        return idVeiculoLeve;
     }
 
     public String getCor() {
@@ -48,7 +48,7 @@ public class Veiculosleves extends Veiculo {
 
     @Override
     public String toString() {
-        return "\nId Veiculo categoria Leve:" + getId() + "\nCor de Veiculo: " + getCor();
+        return "\nId Veiculo categoria Leve:" + getIdVeiculoLeve() + "\nCor de Veiculo: " + getCor();
 
     }
 

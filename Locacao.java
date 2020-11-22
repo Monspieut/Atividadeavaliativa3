@@ -3,7 +3,7 @@ import java.util.Date;
 import java.util.Calendar;
 
 public class Locacao {
-    private int id;
+    private int idDaLocacao;
     private int idDoCliente;
     private Date dtLocacao;
     private Date dtDevolucao;
@@ -12,8 +12,8 @@ public class Locacao {
 
     public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>();
 
-    public Locacao(int id, int idDocliente, Date dtLocacao, Date dtDevolucao) {
-        this.id = id;
+    public Locacao(int idDaLocacao, int idDocliente, Date dtLocacao, Date dtDevolucao) {
+        this.idDaLocacao = idDaLocacao;
         this.idDoCliente = idDocliente;
         this.dtLocacao = dtLocacao;
         this.dtDevolucao = dtDevolucao;
@@ -24,8 +24,8 @@ public class Locacao {
     }
 
     // Sets
-    public void set(int id) {
-        this.id = id;
+    public void setidDaLocacao(int idDaLocacao) {
+        this.idDaLocacao = idDaLocacao;
     }
 
     public void setIddocliente(int idDoCliente) {
@@ -49,8 +49,8 @@ public class Locacao {
     // }
 
     // Gets
-    public int getId() {
-        return id;
+    public int getidDaLocacao() {
+        return idDaLocacao;
     }
 
     public int getIddocliente() {
@@ -71,7 +71,7 @@ public class Locacao {
 
     @Override
     public String toString() {
-        return "\nId Locação: " + getId() + "\nId do cliente: " + getIddocliente() + "\nData de Locação: "
+        return "\nId Locação: " + getidDaLocacao() + "\nId do cliente: " + getIddocliente() + "\nData de Locação: "
                 + getDtlocacao() + "\nData de Devolução: " + getDtdevolucao() + "\nQuantidade de locações do cliente: "
                 + getqtdVeiculosLocados();
 

@@ -21,9 +21,9 @@ public class Conexao {
 
     public static void inserirCliente(Connection conexao, int id, String nome, Date dtNascimento, String cpf, 
     int diasParaDevolucao) throws Exception {
-        String clienteUm = "INSERT INTO cliente_um " + "(id, nome, dtnascimento, cpf, diasparadevolucao)" + "VALUES(?,?,?,?,?)";
+        String clientes = "INSERT INTO cliente_um " + "(id, nome, dtnascimento, cpf, diasparadevolucao)" + "VALUES(?,?,?,?,?)";
         try{
-            PreparedStatement statement = conexao.prepareStatement(clienteUm);
+            PreparedStatement statement = conexao.prepareStatement(clientes);
             statement.setInt(1, id);
             statement.setString(2, nome);
            // statement.setDate(3, dtNascimento); ERRO NA DATA

@@ -1,12 +1,80 @@
 import java.util.Scanner;
+import javax.swing.JFrame;
 import java.util.Date;
 import java.util.Calendar;
+import javax.swing.*;
+import java.awt.*;
 
-public class Menu {
+public class Menu extends JFrame {
+
+    public Menu(){
+
+        JLabel labelSistemaLocacao = new JLabel("    Sistema de Locação de Veiculos ");
+        JLabel labelCadastrarCliente = new JLabel(" 1 - Cadastrar Cliente ");
+        JLabel labelCadastrarVeiculo = new JLabel(" 2 - Cadastrar Veículo");
+        JLabel labelCadastrarLocacao = new JLabel(" 3 - Cadastrar Locação");
+        JLabel labelListarClientes = new JLabel("   4 - Listar Clientes  .");
+        JLabel labelListarVeiculos = new JLabel("   5 - Listar Veículos   .");
+        JLabel labelListarLocacao = new JLabel("    6 - Listar Locações  .");
+        JLabel labelSair = new JLabel("             0 - Sair  .");
+        JLabel labelOpcao = new JLabel("            Digite sua opção:  ");
+
+        JTextField textSistemaLocacao = new JTextField(0);
+        JTextField textCadastrarCliente = new JTextField(25);
+        JTextField textCadastrarVeiculo = new JTextField(25);
+        JTextField textCadastrarLocacao = new JTextField(25);
+        JTextField textListarClientes = new JTextField(25);
+        JTextField textListarVeiculos = new JTextField(25);
+        JTextField textListarLocacao = new JTextField(25);
+        JTextField textSair = new JTextField(1);
+        JTextField textOpcao = new JTextField(1);
+        
+
+
+        Container pane = this.getContentPane();
+        pane.setLayout(new GridLayout(5,30));
+
+        pane.add(labelSistemaLocacao);
+        pane.add(textSistemaLocacao) ;
+
+        pane.add(labelCadastrarCliente);
+        pane.add(textCadastrarCliente)  ;
+
+        pane.add(labelCadastrarVeiculo);
+        pane.add(textCadastrarVeiculo);
+
+        pane.add(labelCadastrarLocacao);
+        pane.add(textCadastrarLocacao);
+
+        pane.add(labelListarClientes);
+        pane.add(textListarClientes);
+
+        pane.add(labelListarVeiculos);
+        pane.add(textListarVeiculos);
+        
+        pane.add(labelListarLocacao);
+        pane.add(textListarLocacao);
+
+        pane.add(labelSair);
+        pane.add(textSair);
+
+        pane.add(labelOpcao);
+        pane.add(textOpcao);
+
+        
+        this.setSize(400,200);
+        this.setVisible(true);
+
+    }
+
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
+
         while (true) {
+
+            Menu main = new Menu(); 
+
             System.out.println("\n\n            Sistema de Locação de Veiculos ");
             System.out.println("\n                 =========================");
             System.out.println("                      1 - Cadastrar Cliente         ");
@@ -17,8 +85,10 @@ public class Menu {
             System.out.println("                      6 - Listar Locações   ");
             System.out.println("                      0 - Sair          ");
             System.out.println("                   ========================\n");
+            System.out.println("                          Digite sua opção: \n");
 
             int menu = scanner.nextInt();
+
             switch (menu) {
                 case 1:
                     System.out.println(" CADASTRAR CLIENTE: ");
@@ -47,8 +117,6 @@ public class Menu {
 
                     System.out.println("Informe o dia para devolução do veiculo: ");
                     int diasparadevolucao = scanner.nextInt();
-
-                    new Cliente(idCliente, nome, dtnascimento, cpf, diasparadevolucao);
 
                     break;
 
@@ -113,7 +181,6 @@ public class Menu {
                             break;
 
                     }
-                    scanner.close();
 
                 case 3:
 
@@ -135,6 +202,7 @@ public class Menu {
                 case 4:
 
                     System.out.println(" LISTAR CLIENTES: ");
+
                     break;
                 case 5:
 
@@ -147,15 +215,18 @@ public class Menu {
 
                 case 0:
                     System.out.println("Sair do Menu.");
+
                     break;
 
                 default:
                     System.out.println("Opção Inválida!");
                     break;
 
-                    menu.close();
-
+            }
+            if (menu == 0) {
+                break;
             }
         }
+        scanner.close();
     }
 }

@@ -7,62 +7,31 @@ import java.awt.*;
 
 public class Menu extends JFrame {
 
-    public Menu(){
+  
+    JLabel sistemaLocacao = new JLabel(" Sistema de Locação de Veiculos ");
+    JButton cadastroCliente = new JButton(" 1 - Cadastrar Cliente ");
+    JButton cadastroVeiculo = new JButton(" 2 - Cadastrar Veículo   ");
+    JButton cadastroLocacao = new JButton(" 3 - Cadastrar Locação ");
+    JButton listarCliente = new JButton(" 4 - Listar Clientes ");
+    JButton listarVeiculo = new JButton(" 5 - Listar Veículos ");
+    JButton listarLocacoes = new JButton(" 6 - Listar Locações ");
+    JButton sair = new JButton(" Sair ");
 
-        JLabel labelSistemaLocacao = new JLabel("    Sistema de Locação de Veiculos ");
-        JLabel labelCadastrarCliente = new JLabel(" 1 - Cadastrar Cliente ");
-        JLabel labelCadastrarVeiculo = new JLabel(" 2 - Cadastrar Veículo");
-        JLabel labelCadastrarLocacao = new JLabel(" 3 - Cadastrar Locação");
-        JLabel labelListarClientes = new JLabel("   4 - Listar Clientes  .");
-        JLabel labelListarVeiculos = new JLabel("   5 - Listar Veículos   .");
-        JLabel labelListarLocacao = new JLabel("    6 - Listar Locações  .");
-        JLabel labelSair = new JLabel("             0 - Sair  .");
-        JLabel labelOpcao = new JLabel("            Digite sua opção:  ");
-
-        JTextField textSistemaLocacao = new JTextField(0);
-        JTextField textCadastrarCliente = new JTextField(25);
-        JTextField textCadastrarVeiculo = new JTextField(25);
-        JTextField textCadastrarLocacao = new JTextField(25);
-        JTextField textListarClientes = new JTextField(25);
-        JTextField textListarVeiculos = new JTextField(25);
-        JTextField textListarLocacao = new JTextField(25);
-        JTextField textSair = new JTextField(1);
-        JTextField textOpcao = new JTextField(1);
-        
-
-
+    public Menu() {
         Container pane = this.getContentPane();
-        pane.setLayout(new GridLayout(5,30));
 
-        pane.add(labelSistemaLocacao);
-        pane.add(textSistemaLocacao) ;
-
-        pane.add(labelCadastrarCliente);
-        pane.add(textCadastrarCliente)  ;
-
-        pane.add(labelCadastrarVeiculo);
-        pane.add(textCadastrarVeiculo);
-
-        pane.add(labelCadastrarLocacao);
-        pane.add(textCadastrarLocacao);
-
-        pane.add(labelListarClientes);
-        pane.add(textListarClientes);
-
-        pane.add(labelListarVeiculos);
-        pane.add(textListarVeiculos);
-        
-        pane.add(labelListarLocacao);
-        pane.add(textListarLocacao);
-
-        pane.add(labelSair);
-        pane.add(textSair);
-
-        pane.add(labelOpcao);
-        pane.add(textOpcao);
+        pane.setLayout(new FlowLayout());
+        pane.add(sistemaLocacao);
+        pane.add(cadastroCliente);
+        pane.add(cadastroVeiculo);
+        pane.add(cadastroLocacao);
+        pane.add(listarCliente);
+        pane.add(listarLocacoes);
+        pane.add(sair);
 
         
-        this.setSize(400,200);
+
+        this.setSize(200, 250);
         this.setVisible(true);
 
     }
@@ -73,7 +42,7 @@ public class Menu extends JFrame {
 
         while (true) {
 
-            Menu main = new Menu(); 
+            Menu main = new Menu();
 
             System.out.println("\n\n            Sistema de Locação de Veiculos ");
             System.out.println("\n                 =========================");
@@ -97,16 +66,16 @@ public class Menu extends JFrame {
                     int idCliente = scanner.nextInt();
 
                     System.out.println("Informe o nome do cliente: ");
-                    String nome = scanner.nextLine();
+                    String nome = scanner.next();
 
                     System.out.println("Informe o C.P.F. do cliente: ");
-                    String cpf = scanner.nextLine();
+                    String cpf = scanner.next();
 
                     boolean dateOK = false;
                     Date dtnascimento = new Date();
                     do {
                         System.out.println("Informe a data de nascimento do cliente (dd/mm/aaaa): ");
-                        String stringDate = scanner.nextLine();
+                        String stringDate = scanner.next();
                         try {
 
                             dateOK = true;
@@ -140,13 +109,13 @@ public class Menu extends JFrame {
                             int idVeiculoLeve = scanner.nextInt();
 
                             System.out.println("Insira a cor do veiculo: ");
-                            String cor = scanner.nextLine();
+                            String cor = scanner.next();
 
                             System.out.println("Insira a marca: ");
-                            String marca = scanner.nextLine();
+                            String marca = scanner.next();
 
                             System.out.println("Insira o modelo do veiculo: ");
-                            String modelo = scanner.nextLine();
+                            String modelo = scanner.next();
 
                             System.out.println("Insira o ano do veiculo: ");
                             int ano = scanner.nextInt();
@@ -164,13 +133,13 @@ public class Menu extends JFrame {
                             int idVeiculoPesado = scanner.nextInt();
 
                             System.out.println("Insira as possiveis restrições do veiculo: ");
-                            String restricoes = scanner.nextLine();
+                            String restricoes = scanner.next();
 
                             System.out.println("Insira a marca: ");
-                            String marcaDois = scanner.nextLine();
+                            String marcaDois = scanner.next();
 
                             System.out.println("Insira o modelo do veiculo: ");
-                            String modeloDois = scanner.nextLine();
+                            String modeloDois = scanner.next();
 
                             System.out.println("Insira o ano do veiculo: ");
                             int ano2 = scanner.nextInt();
@@ -193,10 +162,10 @@ public class Menu extends JFrame {
                     int idDoclientedois = scanner.nextInt();
 
                     System.out.println("Insira a data para locação do veiculo (dd/mm/aaaa): ");
-                    String dtLocacao = scanner.nextLine();
+                    String dtLocacao = scanner.next();
 
                     System.out.println("Insira a data para devolução do veiculo (dd/mm/aaaa): ");
-                    String dtDevolucao = scanner.nextLine();
+                    String dtDevolucao = scanner.next();
 
                     break;
                 case 4:

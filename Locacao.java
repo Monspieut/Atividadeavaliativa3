@@ -4,20 +4,18 @@ import java.util.Calendar;
 
 public class Locacao {
     private int idDaLocacao;
-    private int idDoCliente;
+    private int idCliente;
     private Date dtLocacao;
     private Date dtDevolucao;
-    private Cliente cliente;
     private ArrayList<Veiculoslocados> veiculosLocados;
 
     public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>();
 
     public Locacao(int idDaLocacao, int idDocliente, Date dtLocacao, Date dtDevolucao) {
         this.idDaLocacao = idDaLocacao;
-        this.idDoCliente = idDocliente;
+        this.idCliente = idDocliente;
         this.dtLocacao = dtLocacao;
         this.dtDevolucao = dtDevolucao;
-        this.cliente = cliente;
         this.veiculosLocados = new ArrayList<>();
 
         bdLocacoes.insertValue(this);
@@ -28,8 +26,8 @@ public class Locacao {
         this.idDaLocacao = idDaLocacao;
     }
 
-    public void setIddocliente(int idDoCliente) {
-        this.idDoCliente = idDoCliente;
+    public void setIddocliente(int idCliente) {
+        this.idCliente = idCliente;
     }
 
     public void setDtlocacao(Date dtLocacao) {
@@ -54,7 +52,7 @@ public class Locacao {
     }
 
     public int getIddocliente() {
-        return idDoCliente;
+        return idCliente;
     }
 
     public Date getDtlocacao() {

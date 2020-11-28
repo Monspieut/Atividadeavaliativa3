@@ -5,10 +5,11 @@ import java.awt.*;
 public class CadastroLocacao extends JFrame {
 
     public CadastroLocacao() {
+        JLabel introSistema = new JLabel(" Cadastramento de Locações ");
         JLabel labelIdLocacao = new JLabel("Informe o id da Locação: ");
         JLabel labelIdCliente = new JLabel("Informe o id do cliente: ");
-        JLabel labelDtLocacao = new JLabel("Informe a data de Locação do Veiculo: ");
-        JLabel labelDtDevolucao = new JLabel("Informe a Data para devolução do Veiculo: ");
+        JLabel labelDtLocacao = new JLabel("Data de locação do veiculo: ");
+        JLabel labelDtDevolucao = new JLabel("Data para devolução do Veiculo: ");
 
         JTextField textIdLocacao = new JTextField(25);
         JTextField textIdCliente = new JTextField(25);
@@ -16,8 +17,9 @@ public class CadastroLocacao extends JFrame {
         JTextField textDtDevolucao = new JTextField(25);
 
         Container pane = this.getContentPane();
-        pane.setLayout(new GridLayout(2, 2));
+        pane.setLayout(new FlowLayout());
 
+        pane.add(introSistema);
         pane.add(labelIdLocacao);
         pane.add(textIdLocacao);
 
@@ -32,5 +34,9 @@ public class CadastroLocacao extends JFrame {
 
         this.setSize(200, 220);
         this.setVisible(true);
+    }
+
+    public static void main(String[] args) {
+        CadastroLocacao teste = new CadastroLocacao();
     }
 }

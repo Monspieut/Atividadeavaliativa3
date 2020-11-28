@@ -2,18 +2,15 @@ import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
 
-
 public class CadastroCliente extends JFrame {
-    public CadastroCliente(){
+    public CadastroCliente() {
 
-         
-        JLabel labelId = new JLabel("Informe o id do cliente: ")  ;
-        JLabel labelNomeCliente = new JLabel("Informe o nome do cliente: ");
-        JLabel labelDtNascimento = new JLabel("Informe a data de nascimento do cliente: ");
-        JLabel labelCpfCliente = new JLabel("Informe o cpf do cliente: ");
+        JLabel introSistema = new JLabel(" Cadastramento de Cliente ");
+        JLabel labelId = new JLabel("Informe o id do cliente: ");
+        JLabel labelNomeCliente = new JLabel("Nome completo: ");
+        JLabel labelDtNascimento = new JLabel("Data de nascimento: ");
+        JLabel labelCpfCliente = new JLabel("Cpf: ");
         JLabel labelDtDevolucao = new JLabel("Informe a data para devolução do veiculo: ");
-        
-      
 
         JTextField textId = new JTextField(25);
         JTextField textNomeCliente = new JTextField(25);
@@ -21,11 +18,10 @@ public class CadastroCliente extends JFrame {
         JTextField textCpfCliente = new JTextField(25);
         JTextField textDtDevolucao = new JTextField(25);
 
-
-
         Container pane = this.getContentPane();
-        pane.setLayout(new GridLayout(2,2));
+        pane.setLayout(new FlowLayout());
 
+        pane.add(introSistema);
         pane.add(labelId);
         pane.add(textId);
 
@@ -41,14 +37,12 @@ public class CadastroCliente extends JFrame {
         pane.add(labelDtDevolucao);
         pane.add(textDtDevolucao);
 
-
-
-       
-        this.setSize(200,220);
+        this.setSize(200, 220);
         this.setVisible(true);
     }
+
     public static void main(String[] args) {
-        CadastroCliente batata = new CadastroCliente();
+        CadastroCliente teste = new CadastroCliente();
     }
 
 }

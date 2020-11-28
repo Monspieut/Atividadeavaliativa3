@@ -1,3 +1,4 @@
+import java.sql.Time;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
@@ -103,9 +104,9 @@ public class Locacao {
 
     public static Date CalcularDataLocacao(Date date, int qtdDeDias) { // Método para calcular por dias de locação --
         // INCOMPLETO
-
+       
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(date);
+        calendario.setTime(date); 
         calendario.add(Calendar.DATE, qtdDeDias);
         return calendario.getTime();
     }

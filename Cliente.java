@@ -74,15 +74,20 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "\nId do cliente:" + getIdCliente() + "\nNome do cliente:" + getNome() + "\nData de nascimento do cliente: "
-                + getDtnascimento() + "\nCpf do cliente: " + getCpt()
+        return "\nId do cliente:" + getIdCliente() + "\nNome do cliente:" + getNome()
+                + "\nData de nascimento do cliente: " + getDtnascimento() + "\nCpf do cliente: " + getCpt()
                 + "\nDias restantes para a devolução do veiculos: " + getDiasparadevolucao()
                 + "\nQuantidade de locações do cliente: " + getQtdlocacoescliente();
 
     }
 
-    public void QtdeVeiculosLocados() { // Método para apresentar a quantidade de veiculos Locados
+    public void QtdeVeiculosLocados(String cpf) { // Método para apresentar a quantidade de veiculos Locados
 
-        System.out.println("\nA quantidade de locações foi de" + this.qtdLocacoesCliente);
+        // Fazer chamada do banco de dados somando a quantidade de locações por CPF
+
+        // SELECT SUM(*) FROM contas.locacao WHERE cpf = p1
+
+        // Conexao.qtdLocacaoCliente(conexao, cpf); // Verificar para não enviar a
+        // conexão
     }
 }

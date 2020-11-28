@@ -1,5 +1,6 @@
 import java.util.Scanner;
 import javax.swing.JFrame;
+
 import java.util.Date;
 import javax.swing.*;
 import java.awt.*;
@@ -22,11 +23,11 @@ public class Menu extends JFrame { // Menu com Interface gráfica
 
     public Menu() {
 
-            ActionListener cadastrarClientes = new ActionListener() {
-                public void actionPerformed(ActionEvent e) {
-                    handleCadastroClientes(e);
-                }
-            };
+        ActionListener cadastrarClientes = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleCadastroClientes(e);
+            }
+        };
 
         ActionListener cadastrarVeiculos = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -76,7 +77,8 @@ public class Menu extends JFrame { // Menu com Interface gráfica
     }
 
     private void handleCadastroClientes(ActionEvent e) {
-
+        CadastroCliente cadastrarClientes = new CadastroCliente();
+        cadastrarClientes.setVisible(true);
     }
 
     private void handleCadastrarVeiculos(ActionEvent e) {
@@ -100,10 +102,10 @@ public class Menu extends JFrame { // Menu com Interface gráfica
     }
 
     private void buttonConfirmationActionPerformed(ActionEvent e) { // Utilizar na Opção de sair do Menu
-        int retorno = JOptionPane.showConfirmDialog(this, "Deseja sair do menu?", "Sair", JOptionPane.OK_CANCEL_OPTION,
+        int mensagem = JOptionPane.showConfirmDialog(this, "Deseja sair do menu?", "Sair", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
 
-        if (retorno == JOptionPane.OK_CANCEL_OPTION) {
+        if (mensagem == JOptionPane.OK_CANCEL_OPTION) {
             System.exit(0);
         }
     }

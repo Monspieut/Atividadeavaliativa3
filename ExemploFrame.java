@@ -30,7 +30,7 @@ public class ExemploFrame extends JFrame {
         pane.add(labelObs);
         pane.add(textAreaObs);
 
-        this.setSize(600,400);
+        this.setSize(300,250);
         this.setVisible(true);
 
     }

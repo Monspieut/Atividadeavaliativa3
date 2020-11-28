@@ -1,39 +1,111 @@
 import java.util.Scanner;
 import javax.swing.JFrame;
 import java.util.Date;
-import java.util.Calendar;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
-public class Menu extends JFrame {
+public class Menu extends JFrame { // Menu com Interface gráfica
 
-  
+    private JButton mensagem;
+    
     JLabel sistemaLocacao = new JLabel(" Sistema de Locação de Veiculos ");
     JButton cadastroCliente = new JButton(" 1 - Cadastrar Cliente ");
     JButton cadastroVeiculo = new JButton(" 2 - Cadastrar Veículo   ");
     JButton cadastroLocacao = new JButton(" 3 - Cadastrar Locação ");
     JButton listarCliente = new JButton(" 4 - Listar Clientes ");
     JButton listarVeiculo = new JButton(" 5 - Listar Veículos ");
-    JButton listarLocacoes = new JButton(" 6 - Listar Locações ");
+    JButton listarLocacao = new JButton(" 6 - Listar Locações ");
     JButton sair = new JButton(" Sair ");
 
     public Menu() {
-        Container pane = this.getContentPane();
 
-        pane.setLayout(new FlowLayout());
-        pane.add(sistemaLocacao);
-        pane.add(cadastroCliente);
-        pane.add(cadastroVeiculo);
-        pane.add(cadastroLocacao);
-        pane.add(listarCliente);
-        pane.add(listarLocacoes);
-        pane.add(sair);
+            ActionListener cadastrarClientes = new ActionListener() {
+                public void actionPerformed(ActionEvent e) {
+                    handleCadastroClientes(e);
+                }
+            };
 
-        
+        ActionListener cadastrarVeiculos = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleCadastrarVeiculos(e);
+            }
+        };
+
+        ActionListener cadastrarLocacoes = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleCadastrarLocacoes(e);
+            }
+        };
+
+        ActionListener listarClientes = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleListarClientes(e);
+            }
+        };
+
+        ActionListener listarVeiculos = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handlelistarVeiculos(e);
+            }
+        };
+
+        ActionListener listarLocacoes = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleListarLocacoes(e);
+            }
+        };
+
+        Container pane1 = this.getContentPane();
+
+        pane1.setLayout(new FlowLayout());
+        pane1.add(sistemaLocacao);
+        pane1.add(cadastroCliente);
+        pane1.add(cadastroVeiculo);
+        pane1.add(cadastroLocacao);
+        pane1.add(listarCliente);
+        pane1.add(listarVeiculo);
+        pane1.add(listarLocacao);
+        pane1.add(sair);
 
         this.setSize(200, 250);
         this.setVisible(true);
 
+    }
+
+    private void handleCadastroClientes(ActionEvent e) {
+
+    }
+
+    private void handleCadastrarVeiculos(ActionEvent e) {
+
+    }
+
+    private void handleCadastrarLocacoes(ActionEvent e) {
+
+    }
+
+    private void handleListarClientes(ActionEvent e) {
+
+    }
+
+    private void handlelistarVeiculos(ActionEvent e) {
+
+    }
+
+    private void handleListarLocacoes(ActionEvent e) {
+
+    }
+
+    private void buttonConfirmationActionPerformed(ActionEvent e) { // Utilizar na Opção de sair do Menu
+        int retorno = JOptionPane.showConfirmDialog(this, "Deseja sair do menu?", "Sair", JOptionPane.OK_CANCEL_OPTION,
+                JOptionPane.QUESTION_MESSAGE);
+
+        if (retorno == JOptionPane.OK_CANCEL_OPTION) {
+            System.exit(0);
+        }
     }
 
     public static void main(String[] args) {
@@ -43,18 +115,6 @@ public class Menu extends JFrame {
         while (true) {
 
             Menu main = new Menu();
-
-            System.out.println("\n\n            Sistema de Locação de Veiculos ");
-            System.out.println("\n                 =========================");
-            System.out.println("                      1 - Cadastrar Cliente         ");
-            System.out.println("                      2 - Cadastrar Veículo     ");
-            System.out.println("                      3 - Cadastrar Locação       ");
-            System.out.println("                      4 - Listar Clientes      ");
-            System.out.println("                      5 - Listar Veículos    ");
-            System.out.println("                      6 - Listar Locações   ");
-            System.out.println("                      0 - Sair          ");
-            System.out.println("                   ========================\n");
-            System.out.println("                          Digite sua opção: \n");
 
             int menu = scanner.nextInt();
 

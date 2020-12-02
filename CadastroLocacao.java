@@ -1,6 +1,8 @@
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class CadastroLocacao extends JFrame {
 
@@ -10,6 +12,8 @@ public class CadastroLocacao extends JFrame {
         JLabel labelIdCliente = new JLabel("Informe o id do cliente: ");
         JLabel labelDtLocacao = new JLabel("Data de locação do veiculo: ");
         JLabel labelDtDevolucao = new JLabel("Data para devolução do Veiculo: ");
+        JButton confirmacao = new JButton(" Confirmar informações ");
+
 
         JTextField textIdLocacao = new JTextField(25);
         JTextField textIdCliente = new JTextField(25);
@@ -17,6 +21,13 @@ public class CadastroLocacao extends JFrame {
         JTextField textDtDevolucao = new JTextField(25);
 
         Container pane = this.getContentPane();
+
+        ActionListener acaoconfirmacao = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleConfirmacao(e);
+            }
+        };
+
         pane.setLayout(new FlowLayout());
 
         pane.add(introSistema);
@@ -32,10 +43,19 @@ public class CadastroLocacao extends JFrame {
         pane.add(labelDtDevolucao);
         pane.add(textDtDevolucao);
 
+        pane.add(confirmacao);
+
         this.setSize(200, 220);
         this.setVisible(true);
     }
 
+    
+    private void handleConfirmacao(ActionEvent e) {
+     
+        //Criar o Objeto de Locacao
+         
+        }
+    
     public static void main(String[] args) {
         CadastroLocacao teste = new CadastroLocacao();
     }

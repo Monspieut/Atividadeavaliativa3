@@ -1,6 +1,5 @@
 import java.util.Scanner;
 import javax.swing.JFrame;
-
 import java.util.Date;
 import javax.swing.*;
 import java.awt.*;
@@ -11,7 +10,7 @@ import java.awt.event.ActionListener;
 public class Menu extends JFrame { // Menu com Interface gráfica
 
     private JButton mensagem;
-    
+
     JLabel sistemaLocacao = new JLabel(" Sistema de Locação de Veiculos ");
     JButton cadastroCliente = new JButton(" 1 - Cadastrar Cliente ");
     JButton cadastroVeiculo = new JButton(" 2 - Cadastrar Veículo   ");
@@ -23,39 +22,46 @@ public class Menu extends JFrame { // Menu com Interface gráfica
 
     public Menu() {
 
-        ActionListener cadastrarClientes = new ActionListener() {
+        ActionListener acaoCadastroCliente = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleCadastroClientes(e);
+                handleCadastroCliente(e);
             }
         };
 
-        ActionListener cadastrarVeiculos = new ActionListener() {
+        ActionListener acaoCadastroVeiculo = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleCadastrarVeiculos(e);
+                handleCadastrarVeiculo(e);
             }
         };
 
-        ActionListener cadastrarLocacoes = new ActionListener() {
+        ActionListener acaoCadastroLocacao = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleCadastrarLocacoes(e);
+                handleCadastrarLocacao(e);
+            }
+        };
+       
+
+        ActionListener acaoListarCliente = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleListarCliente(e);
             }
         };
 
-        ActionListener listarClientes = new ActionListener() {
+        ActionListener acaoListarVeiculo = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleListarClientes(e);
+                handlelistarVeiculo(e);
             }
         };
 
-        ActionListener listarVeiculos = new ActionListener() {
+        ActionListener acaoListarLocacao = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handlelistarVeiculos(e);
+                handleListarLocacao(e);
             }
         };
 
-        ActionListener listarLocacoes = new ActionListener() {
+        ActionListener acaoSair = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                handleListarLocacoes(e);
+                handleSair(e);
             }
         };
 
@@ -71,37 +77,46 @@ public class Menu extends JFrame { // Menu com Interface gráfica
         pane1.add(listarLocacao);
         pane1.add(sair);
 
-        this.setSize(200, 250);
+        this.setSize(230, 300);
         this.setVisible(true);
 
+        cadastroCliente.addActionListener(acaoCadastroCliente);
+        cadastroVeiculo.addActionListener(acaoCadastroVeiculo);
+        cadastroLocacao.addActionListener(acaoCadastroLocacao);
+        listarCliente.addActionListener(acaoListarCliente);
+        listarVeiculo.addActionListener(acaoListarVeiculo);
+        listarLocacao.addActionListener(acaoListarLocacao);
+        sair.addActionListener(acaoSair);
     }
 
-    private void handleCadastroClientes(ActionEvent e) {
-        CadastroCliente cadastrarClientes = new CadastroCliente();
-        cadastrarClientes.setVisible(true);
+    private void handleCadastroCliente(ActionEvent e) {
+        new CadastroCliente();
     }
 
-    private void handleCadastrarVeiculos(ActionEvent e) {
-
-    }
-
-    private void handleCadastrarLocacoes(ActionEvent e) {
-
-    }
-
-    private void handleListarClientes(ActionEvent e) {
-
-    }
-
-    private void handlelistarVeiculos(ActionEvent e) {
+    private void handleCadastrarVeiculo(ActionEvent e) {
+        new CadastroVeiculo();
 
     }
 
-    private void handleListarLocacoes(ActionEvent e) {
+    private void handleCadastrarLocacao(ActionEvent e) {
+        new CadastroLocacao();
+    }
+
+
+    private void handleListarCliente(ActionEvent e) {
+        new ListarCliente();
 
     }
 
-    private void buttonConfirmationActionPerformed(ActionEvent e) { // Utilizar na Opção de sair do Menu
+    private void handlelistarVeiculo(ActionEvent e) {
+        new ListarVeiculo();
+    }
+
+    private void handleListarLocacao(ActionEvent e) {
+        new ListarVeiculo();
+    }
+
+    private void handleSair(ActionEvent e) { // Utilizar na Opção de sair do Menu
         int mensagem = JOptionPane.showConfirmDialog(this, "Deseja sair do menu?", "Sair", JOptionPane.OK_CANCEL_OPTION,
                 JOptionPane.QUESTION_MESSAGE);
 

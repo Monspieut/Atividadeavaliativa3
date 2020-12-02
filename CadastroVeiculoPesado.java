@@ -1,6 +1,9 @@
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 
 public class CadastroVeiculoPesado extends JFrame {
 
@@ -13,6 +16,7 @@ public class CadastroVeiculoPesado extends JFrame {
         JLabel labelAnoVeiculo = new JLabel("Ano do Veiculo: ");
         JLabel labelRestricoesVeiculo = new JLabel("Informe se o veiculo possui alguma restrição: ");
         JLabel labelValorLocacao = new JLabel("Insira o valor para locação do Veiculo: ");
+        JButton confirmacao = new JButton(" Confirmar informações ");
 
         JTextField textIdVeiculo = new JTextField(25);
         JTextField textMarcaVeiculo = new JTextField(25);
@@ -22,6 +26,13 @@ public class CadastroVeiculoPesado extends JFrame {
         JTextField textValorLocacao = new JTextField(25);
 
         Container pane = this.getContentPane();
+
+        ActionListener acaoconfirmacao = new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                handleConfirmacao(e);
+            }
+        };
+
         pane.setLayout(new FlowLayout());
 
         pane.add(introSistema);
@@ -44,10 +55,18 @@ public class CadastroVeiculoPesado extends JFrame {
         pane.add(labelRestricoesVeiculo);
         pane.add(textRestricoesVeiculo);
 
+        
+        pane.add(confirmacao);
+
         this.setSize(200, 220);
         this.setVisible(true);
     }
 
+    private void handleConfirmacao(ActionEvent e) {
+
+        // Criar o Objeto de VeiculoPesado
+
+    }
     public static void main(String[] args) {
         CadastroVeiculoPesado teste = new CadastroVeiculoPesado();
     }

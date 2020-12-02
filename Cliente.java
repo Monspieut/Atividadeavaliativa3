@@ -20,7 +20,9 @@ public class Cliente {
         this.qtdLocacoesCliente = new ArrayList<>();
 
         clientes.insertValue(this);
-
+        //getConnection - pegar conexao
+        //CadastrarCliente - para cadastrar cliente
+        //End Connection - finalizar conexao
     }
 
     public void setIdCliente(int idCliente) {

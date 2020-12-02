@@ -8,7 +8,7 @@ public class Conexao {
     public static Connection getConnection() throws Exception {
         try {
 
-            final String URL = "jdbc:mysql://localhost:3306/contas";
+            final String URL = "jdbc:mysql://localhost:3306/contas?useTimezone=true&serverTimezone=UTC";
             final String USER = "root";
             final String PASSWORD = "";
 
@@ -21,10 +21,10 @@ public class Conexao {
 
     // 1.0 - Criar cadastro de cliente
 
-    public static void cadastrarCliente(Connection conexao, int id, String nome, Date dtNascimento, String cpf,
+    public static void cadastrarCliente(Connection conexao, String nome, Date dtNascimento, String cpf,
             int diasParaDevolucao) throws Exception {
-        String cadastroCliente = "INSERT INTO cliente " + "(id, nome, dtnascimento, cpf, diasparadevolucao)"
-                + "VALUES(?,?,?,?,?)";
+        String cadastroCliente = "INSERT INTO cliente " + "(nome, dtnascimento, cpf, diasparadevolucao)"
+                + "VALUES(?,?,?,?)";
         try {
             PreparedStatement statement = conexao.prepareStatement(cadastroCliente);
 
@@ -212,5 +212,14 @@ public class Conexao {
         }
 
     }
+    public static void main(String[] args) {
+       try{
+        
+        Conexao.getConnection();
+    
+       } catch(Exception e){
+        System.out.println(e.getMessage());
+       }
 
+    }   
 }

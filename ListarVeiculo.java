@@ -1,10 +1,16 @@
+package view;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
 
 public class ListarVeiculo extends JFrame {
 
+    // Criação da tela de Listar Veiculos utilizando o extends de Jframe
+
     public ListarVeiculo() {
+
+        // Criando os labels e os campos de texto para vizualização e utilização da tela
 
         JLabel introSistema = new JLabel(" Listagem de Veiculos Cadastrados ");
         JLabel labelListagemVeiculos = new JLabel("Veiculos:");
@@ -21,10 +27,6 @@ public class ListarVeiculo extends JFrame {
 
         this.setSize(200, 200);
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        ListarVeiculo teste = new ListarVeiculo();
     }
 
 }

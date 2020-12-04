@@ -1,11 +1,21 @@
+package view;
+
 import javax.swing.JFrame;
+
+import DAO.ClienteDAO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Criação da tela de cadastro de cliente utilizando o extends de Jframe
+
 public class CadastroCliente extends JFrame {
+
     public CadastroCliente() {
+
+        // Criando os labels e os butttons para vizualização e utilização da tela
 
         JLabel introSistema = new JLabel(" Cadastramento de Cliente ");
         JLabel labelId = new JLabel("Informe o id do cliente: ");
@@ -15,6 +25,8 @@ public class CadastroCliente extends JFrame {
         JLabel labelDtDevolucao = new JLabel("Informe a data para devolução do veiculo: ");
         JButton confirmacao = new JButton(" Confirmar informações ");
 
+        // Criando os campos de texto
+
         JTextField textId = new JTextField(25);
         JTextField textNomeCliente = new JTextField(25);
         JTextField textDtNascimento = new JTextField(25);
@@ -23,6 +35,8 @@ public class CadastroCliente extends JFrame {
 
         Container pane = this.getContentPane();
 
+        // Criando o ActionListener para aguardar a execução
+
         ActionListener acaoconfirmacao = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handleConfirmacao(e);
@@ -30,6 +44,8 @@ public class CadastroCliente extends JFrame {
         };
 
         pane.setLayout(new FlowLayout());
+
+        // Adicionando os labels e os butttons para vizualização e utilização da tela
 
         confirmacao.addActionListener(acaoconfirmacao);
 
@@ -55,14 +71,11 @@ public class CadastroCliente extends JFrame {
 
     }
 
+    // Adicionando as informações da tela no banco de dados
+
     private void handleConfirmacao(ActionEvent e) {
-     
-    //Criar o Objeto de cliente
-     
-    }
 
-    public static void main(String[] args) {
-        CadastroCliente teste = new CadastroCliente();
-    }
+        new ClienteDAO();
 
+    }
 }

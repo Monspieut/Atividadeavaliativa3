@@ -1,9 +1,17 @@
+package models;
+
+//Criando a classe de veiculos locados
+
 public class Veiculoslocados {
     private int idLocacao;
     private int idVeiculoLeve;
     private int idVeiculoPesado;
 
-    public static BancoDeDados<Veiculoslocados> bdVeicLocados = new BancoDeDados<>();
+    public static BancoDeDados<Veiculoslocados> bdVeicLocados = new BancoDeDados<>(); // Estabelecendo a conexão com
+                                                                                      // banco
+    // de dados
+
+    // Criando o construtor da classe
 
     public Veiculoslocados(int idLocacao, int idVeiculoLeve, int idVeiculoPesado) {
         this.idLocacao = idLocacao;
@@ -14,7 +22,7 @@ public class Veiculoslocados {
 
     }
 
-    // Sets
+    // Criando os Sets
     public void setIdLocacao(int idLocacao) {
         this.idLocacao = idLocacao;
     }
@@ -27,7 +35,7 @@ public class Veiculoslocados {
         this.idVeiculoPesado = idVeiculoPesado;
     }
 
-    // Gets
+    // Criando os Gets
     public int getIdLocacao() {
         return idLocacao;
     }
@@ -39,6 +47,8 @@ public class Veiculoslocados {
     public int getIdVeiculoPesado() {
         return idVeiculoPesado;
     }
+
+    // Criando o toString para a impressão
 
     @Override
     public String toString() {

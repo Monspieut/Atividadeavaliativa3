@@ -1,12 +1,19 @@
+package models;
+
 import java.util.ArrayList;
+
+//Criando a classe de veiculos leves herdando os atributos e propriedades de veiculo utilizando o "extends"
 
 public class Veiculosleves extends Veiculo {
     private int idVeiculoLeve;
     private String cor;
-    private ArrayList<Veiculoslocados> locacaoVeiculosLeves; // Utilizando o ArrayList para fazer o relacionamento com outra
-                                                         // classe
+    private ArrayList<Veiculoslocados> locacaoVeiculosLeves; // Utilizando o ArrayList para fazer o relacionamento com a
+                                                             // classe de veiculos locados
 
-    public static BancoDeDados<Veiculosleves> bdVeicLeves = new BancoDeDados<>();
+    public static BancoDeDados<Veiculosleves> bdVeicLeves = new BancoDeDados<>(); // Estabelecendo a conexão com banco
+                                                                                  // de dados
+
+    // Criando o construtor da classe
 
     public Veiculosleves(int idVeiculoLeve, String cor, String marca, String modelo, int ano, double valorParaLocacao) {
         super(marca, modelo, ano, valorParaLocacao);
@@ -17,8 +24,8 @@ public class Veiculosleves extends Veiculo {
         bdVeicLeves.insertValue(this);
     }
 
-    // Sets
-    public void setIdVeiculoLeve(int idVeiculoLeve) { 
+    // Criando os Sets
+    public void setIdVeiculoLeve(int idVeiculoLeve) {
         this.idVeiculoLeve = idVeiculoLeve;
     }
 
@@ -30,7 +37,7 @@ public class Veiculosleves extends Veiculo {
         this.locacaoVeiculosLeves.add(locacaoVeiculosLeves);
     }
 
-    // Gets
+    // Criando os Gets
     public int getIdVeiculoLeve() {
         return idVeiculoLeve;
     }
@@ -42,9 +49,12 @@ public class Veiculosleves extends Veiculo {
     public ArrayList<Veiculoslocados> getLocacaoVeiculosLeves() {
         return this.locacaoVeiculosLeves;
     }
-    public static Veiculosleves getVeiculo(int id) throws Exception{
-       return bdVeicLeves.getValor(id);
+
+    public static Veiculosleves getVeiculo(int id) throws Exception {
+        return bdVeicLeves.getValor(id);
     }
+
+    // Criando o toString para a impressão
 
     @Override
     public String toString() {

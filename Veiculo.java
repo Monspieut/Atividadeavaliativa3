@@ -1,8 +1,15 @@
+package models;
+
+//Criação da Classe Veiculo como abstrata que não pode ser instanciada mas que serve para que 
+//Veiculo Leve e Veiculo Pesado herdem seus atributos e propriedades
+
 public abstract class Veiculo {
     protected String marca;
     protected String modelo;
     protected int ano;
     protected double valorParaLocacao;
+
+    // Criando o construtor da classe veiculo
 
     public Veiculo(String marca, String modelo, int ano, double valorParaLocacao) { // Criando os construtores
         this.marca = marca;
@@ -12,7 +19,7 @@ public abstract class Veiculo {
 
     }
 
-    // Sets
+    // Criando os Sets
     public void setMarca(String marca) {
         this.marca = marca;
     }
@@ -29,7 +36,7 @@ public abstract class Veiculo {
         this.valorParaLocacao = valorParaLocacao;
     }
 
-    // Gets
+    // Criando os Gets
     public String getMarca() {
         return marca;
     }
@@ -45,6 +52,8 @@ public abstract class Veiculo {
     public double getValorParaLocacao() {
         return valorParaLocacao;
     }
+
+    // Criando o toString para a impressão
 
     @Override
     public String toString() {

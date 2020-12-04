@@ -1,17 +1,25 @@
+package models;
+
 import java.util.ArrayList;
-import java.util.Date;
+
+// Criação da Classe Cliente
 
 public class Cliente {
     private int idCliente;
     private String nome;
-    private Date dtNascimento;
+    private String dtNascimento;
     private String cpf;
     private int diasParaDevolucao;
     private ArrayList<Locacao> qtdLocacoesCliente;
 
-    public static BancoDeDados<Cliente> clientes = new BancoDeDados<>();
+    public static BancoDeDados<Cliente> clientes = new BancoDeDados<>(); // Estabelecendo a conexão com o banco
 
-    public Cliente(int idCliente, String nome, Date dtNascimento, String cpf, int diasParaDevolucao) {
+    // Criando o construtor da classe Cliente
+
+    public Cliente() {
+    }
+
+    public Cliente(int idCliente, String nome, String dtNascimento, String cpf, int diasParaDevolucao) {
         this.idCliente = idCliente;
         this.nome = nome;
         this.dtNascimento = dtNascimento;
@@ -20,10 +28,9 @@ public class Cliente {
         this.qtdLocacoesCliente = new ArrayList<>();
 
         clientes.insertValue(this);
-        //getConnection - pegar conexao
-        //CadastrarCliente - para cadastrar cliente
-        //End Connection - finalizar conexao
+
     }
+    // Criando os sets
 
     public void setIdCliente(int idCliente) {
         this.idCliente = idCliente;
@@ -33,7 +40,7 @@ public class Cliente {
         this.nome = nome;
     }
 
-    public void setDtnascimento(Date dtnascimento) {
+    public void setDtnascimento(String dtnascimento) {
         this.dtNascimento = dtnascimento;
     }
 
@@ -49,7 +56,7 @@ public class Cliente {
         this.qtdLocacoesCliente.add(qtdlocacoescliente);
     }
 
-    // Gets
+    // Criando os Gets
     public int getIdCliente() {
         return idCliente;
     }
@@ -58,7 +65,7 @@ public class Cliente {
         return nome;
     }
 
-    public Date getDtnascimento() {
+    public String getDtnascimento() {
         return dtNascimento;
     }
 
@@ -74,6 +81,8 @@ public class Cliente {
         return this.qtdLocacoesCliente;
     }
 
+    // Criando o toString para a impressão
+
     @Override
     public String toString() {
         return "\nId do cliente:" + getIdCliente() + "\nNome do cliente:" + getNome()
@@ -83,12 +92,11 @@ public class Cliente {
 
     }
 
-    public void QtdeVeiculosLocados(String cpf) { // Método para apresentar a quantidade de veiculos Locados
+    public void QtdeVeiculosLocados(String cpf) { // Aqui seria o
+        // Método para apresentar a quantidade de veiculos Locados
 
         // Fazer chamada do banco de dados somando a quantidade de locações por CPF
-
         // SELECT SUM(*) FROM contas.locacao WHERE cpf = p1
-
         // Conexao.qtdLocacaoCliente(conexao, cpf); // Verificar para não enviar a
         // conexão
     }

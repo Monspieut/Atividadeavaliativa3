@@ -1,4 +1,8 @@
+package models;
+
 import java.util.ArrayList;
+
+// Criação da classe simulando um banco de dados para passar e adicionar as informações
 
 public class BancoDeDados<T> {
     private ArrayList<T> banco = new ArrayList<>();

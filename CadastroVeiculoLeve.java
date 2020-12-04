@@ -1,12 +1,18 @@
+package view;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Criação da tela de cadastro de Veiculos leve utilizando o extends de Jframe
+
 public class CadastroVeiculoLeve extends JFrame {
 
     public CadastroVeiculoLeve() {
+
+        // Criando os labels e os butttons para vizualização e utilização da tela
 
         JLabel introSistema = new JLabel(" Cadastramento de Veiculos Leves ");
         JLabel labelIdVeiculo = new JLabel("Informe o id do veiculo: ");
@@ -17,6 +23,8 @@ public class CadastroVeiculoLeve extends JFrame {
         JLabel labelValorLocacao = new JLabel("Insira o valor para locação do Veiculo: ");
         JButton confirmacao = new JButton(" Confirmar informações ");
 
+        // Criando os campos de texto
+
         JTextField textIdVeiculo = new JTextField(25);
         JTextField textMarcaVeiculo = new JTextField(25);
         JTextField textCorVeiculo = new JTextField(25);
@@ -26,11 +34,15 @@ public class CadastroVeiculoLeve extends JFrame {
 
         Container pane = this.getContentPane();
 
+        // Criando o ActionListener para aguardar a execução
+
         ActionListener acaoconfirmacao = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 handleConfirmacao(e);
             }
         };
+
+        // Adicionando os labels e os butttons para vizualização e utilização da tela
 
         pane.setLayout(new FlowLayout());
 
@@ -62,11 +74,7 @@ public class CadastroVeiculoLeve extends JFrame {
 
     private void handleConfirmacao(ActionEvent e) {
 
-        // Criar o Objeto de VeiculoLeve
+        // Adicionando as informações na tela de VeiculoLeve
 
-    }
-
-    public static void main(String[] args) {
-        CadastroVeiculoLeve teste = new CadastroVeiculoLeve();
     }
 }

@@ -1,10 +1,16 @@
+package view;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
 
+//Criação da tela de Listar Locação utilizando o extends de Jframe
+
 public class ListarLocacao extends JFrame {
 
     public ListarLocacao() {
+
+        // Criando os labels e os campos de texto para vizualização e utilização da tela
 
         JLabel introSistema = new JLabel(" Listagem de Locações Cadastradas ");
         JLabel labelListagemLocacoes = new JLabel("Locações:");
@@ -21,10 +27,6 @@ public class ListarLocacao extends JFrame {
 
         this.setSize(200, 200);
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        ListarLocacao teste = new ListarLocacao();
     }
 
 }

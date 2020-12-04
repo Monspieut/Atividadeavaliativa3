@@ -1,13 +1,25 @@
+package view;
+
 import java.util.Scanner;
 import javax.swing.JFrame;
+
+import DAO.ClienteDAO; //Fazendo os imports para trabalhar com as pastas e as classes
+import DAO.LocacaoDAO;
+import DAO.VeiculoPesadoDAO;
+import DAO.VeiculosLeveDAO;
+import models.Locacao;
+import models.Veiculosleves;
+import models.Veiculospesados;
+
+import java.util.ArrayList;
 import java.util.Date;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.sql.SQLException;
 
-public class Menu extends JFrame { // Menu com Interface gráfica
+public class Menu extends JFrame { // Menu com Interface gráfica (Frontend)
 
     private JButton mensagem;
 
@@ -21,6 +33,8 @@ public class Menu extends JFrame { // Menu com Interface gráfica
     JButton sair = new JButton(" Sair ");
 
     public Menu() {
+
+        // Criando o ActionListener para aguardar a execução
 
         ActionListener acaoCadastroCliente = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -39,7 +53,6 @@ public class Menu extends JFrame { // Menu com Interface gráfica
                 handleCadastrarLocacao(e);
             }
         };
-       
 
         ActionListener acaoListarCliente = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -67,6 +80,8 @@ public class Menu extends JFrame { // Menu com Interface gráfica
 
         Container pane1 = this.getContentPane();
 
+        // Criando os labels e os butttons para vizualização e utilização da tela
+
         pane1.setLayout(new FlowLayout());
         pane1.add(sistemaLocacao);
         pane1.add(cadastroCliente);
@@ -89,6 +104,8 @@ public class Menu extends JFrame { // Menu com Interface gráfica
         sair.addActionListener(acaoSair);
     }
 
+    // Chamando os métodos das classes
+
     private void handleCadastroCliente(ActionEvent e) {
         new CadastroCliente();
     }
@@ -101,7 +118,6 @@ public class Menu extends JFrame { // Menu com Interface gráfica
     private void handleCadastrarLocacao(ActionEvent e) {
         new CadastroLocacao();
     }
-
 
     private void handleListarCliente(ActionEvent e) {
         new ListarCliente();
@@ -125,7 +141,9 @@ public class Menu extends JFrame { // Menu com Interface gráfica
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws SQLException {
+
+        // Utilização do menu via terminal (Backend)
 
         Scanner scanner = new Scanner(System.in);
 
@@ -133,9 +151,24 @@ public class Menu extends JFrame { // Menu com Interface gráfica
 
             Menu main = new Menu();
 
-            int menu = scanner.nextInt();
+            System.out.println("\n\n            Sistema de Locação de Veiculos ");
+            System.out.println(" \n                   ==========================");
+            System.out.println("                   |   1 - Cadastrar Cliente |         ");
+            System.out.println("                   |   2 - Cadastrar Veiculo |        ");
+            System.out.println("                   |  3 - Cadastrar LOCAÇÃO  |       ");
+            System.out.println("                   |   4 - Listar Cliente    |     ");
+            System.out.println("                   |   5 - Listar veiculos   |      ");
+            System.out.println("                   |   6 - Listar Locações   |");
+            System.out.println("                   |   0 - Sair              |");
+            System.out.println("                   ==========================\n");
+            System.out.println("                          Digite sua opção: \n");
+
+            int menu = scanner.nextInt(); // Abrindo o scanner
 
             switch (menu) {
+
+                // Cadastrando as informações de cliente
+
                 case 1:
                     System.out.println(" CADASTRAR CLIENTE: ");
 
@@ -167,6 +200,9 @@ public class Menu extends JFrame { // Menu com Interface gráfica
                     break;
 
                 case 2:
+
+                    // Cadastrando as informações de veiculo podendo cadastrar com opção de veiculo
+                    // leve ou pesado
 
                     System.out.println(" CADASTRAR VEICULO: ");
 
@@ -230,6 +266,8 @@ public class Menu extends JFrame { // Menu com Interface gráfica
 
                 case 3:
 
+                    // Cadastrando as informações de locação
+
                     System.out.println(" CADASTRAR LOCAÇÃO: ");
 
                     System.out.println("Insira o ID do veiculo: ");
@@ -247,16 +285,48 @@ public class Menu extends JFrame { // Menu com Interface gráfica
                     break;
                 case 4:
 
-                    System.out.println(" LISTAR CLIENTES: ");
+                    // Listando os clientes cadastrados utilizando ArrayList
 
+                    System.out.println(" LISTAR CLIENTES: ");
+                    ArrayList<models.Cliente> clientes = ClienteDAO.listarTodosClientes();
+
+                    for (models.Cliente cliente : clientes) {
+                        System.out.println(cliente);
+                    }
                     break;
                 case 5:
 
+                    // Listando os veiculos cadastrados utilizando ArrayList
+
                     System.out.println(" LISTAR VEICULOS: ");
+
+                    System.out.println(" LISTAR Veiculos Leves: ");
+                    ArrayList<Veiculosleves> veiculosLeves = VeiculosLeveDAO.listarVeiculosLeves();
+
+                    for (models.Veiculosleves veicLeve : veiculosLeves) {
+                        System.out.println(veiculosLeves);
+                    }
+
+                    System.out.println(" LISTAR Veiculos Pesados: ");
+                    ArrayList<Veiculospesados> veiculosPesados = VeiculoPesadoDAO.listarVeiculoPesados();
+
+                    for (models.Veiculospesados veicPesado : veiculosPesados) {
+                        System.out.println(veiculosPesados);
+                    }
+
                     break;
                 case 6:
 
+                    // Listando as locações cadastradas utilizando ArrayList
+
                     System.out.println(" LISTAR LOCAÇÕES: ");
+
+                    ArrayList<Locacao> locacoess = LocacaoDAO.listarLocacoes();
+
+                    for (models.Locacao locacao : locacoess) {
+                        System.out.println(locacoess);
+                    }
+
                     break;
 
                 case 0:
@@ -273,6 +343,6 @@ public class Menu extends JFrame { // Menu com Interface gráfica
                 break;
             }
         }
-        scanner.close();
+        scanner.close(); // Fechando o scanner
     }
 }

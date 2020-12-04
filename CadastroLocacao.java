@@ -1,12 +1,22 @@
+package view;
+
 import javax.swing.JFrame;
+
+import DAO.LocacaoDAO;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+//Criação da tela de cadastro de Locação utilizando o extends de Jframe
+
 public class CadastroLocacao extends JFrame {
 
     public CadastroLocacao() {
+
+        // Criando os labels e os butttons para vizualização e utilização da tela
+
         JLabel introSistema = new JLabel(" Cadastramento de Locações ");
         JLabel labelIdLocacao = new JLabel("Informe o id da Locação: ");
         JLabel labelIdCliente = new JLabel("Informe o id do cliente: ");
@@ -14,6 +24,7 @@ public class CadastroLocacao extends JFrame {
         JLabel labelDtDevolucao = new JLabel("Data para devolução do Veiculo: ");
         JButton confirmacao = new JButton(" Confirmar informações ");
 
+        // Criando os campos de texto
 
         JTextField textIdLocacao = new JTextField(25);
         JTextField textIdCliente = new JTextField(25);
@@ -21,6 +32,8 @@ public class CadastroLocacao extends JFrame {
         JTextField textDtDevolucao = new JTextField(25);
 
         Container pane = this.getContentPane();
+
+        // Criando o ActionListener para aguardar a execução
 
         ActionListener acaoconfirmacao = new ActionListener() {
             public void actionPerformed(ActionEvent e) {
@@ -48,15 +61,12 @@ public class CadastroLocacao extends JFrame {
         this.setSize(200, 220);
         this.setVisible(true);
     }
-
-    
+ // Adicionando as informações da tela no banco de dados
+  
     private void handleConfirmacao(ActionEvent e) {
-     
-        //Criar o Objeto de Locacao
-         
-        }
-    
-    public static void main(String[] args) {
-        CadastroLocacao teste = new CadastroLocacao();
+
+        new LocacaoDAO();
+
     }
+
 }

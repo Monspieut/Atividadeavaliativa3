@@ -1,10 +1,16 @@
+package view;
+
 import javax.swing.JFrame;
 import javax.swing.*;
 import java.awt.*;
 
+//Criação da tela de Listar Clientes utilizando o extends de Jframe
+
 public class ListarCliente extends JFrame {
 
     public ListarCliente() {
+
+        // Criando os labels e os campos de texto para vizualização e utilização da tela
 
         JLabel introSistema = new JLabel(" Listagem de Clientes Cadastrados ");
         JLabel labelListagemCliente = new JLabel("Clientes:");
@@ -21,10 +27,6 @@ public class ListarCliente extends JFrame {
 
         this.setSize(200, 200);
         this.setVisible(true);
-    }
-
-    public static void main(String[] args) {
-        ListarCliente teste = new ListarCliente();
     }
 
 }

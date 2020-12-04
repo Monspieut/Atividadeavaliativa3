@@ -1,4 +1,8 @@
+package models;
+
 import java.util.ArrayList;
+
+//Criando a classe de veiculos pesados herdando os atributos e propriedades de veiculo utilizando o "extends"
 
 public class Veiculospesados extends Veiculo {
     private int idVeiculoPesado;
@@ -7,7 +11,10 @@ public class Veiculospesados extends Veiculo {
 
     public static BancoDeDados<Veiculospesados> bdVeicPesados = new BancoDeDados<>();
 
-    public Veiculospesados(int idVeiculoPesado, String restricoes, String marca, String modelo, int ano, double valorParaLocacao) {
+    // Criando o construtor da classe
+
+    public Veiculospesados(int idVeiculoPesado, String restricoes, String marca, String modelo, int ano,
+            double valorParaLocacao) {
         super(marca, modelo, ano, valorParaLocacao);
         this.idVeiculoPesado = idVeiculoPesado;
         this.restricoes = restricoes;
@@ -17,7 +24,7 @@ public class Veiculospesados extends Veiculo {
 
     }
 
-    // Sets
+    // Criando os Sets
     public void setIdVeiculoPesado(int idVeiculoPesado) {
         this.idVeiculoPesado = idVeiculoPesado;
     }
@@ -30,7 +37,7 @@ public class Veiculospesados extends Veiculo {
         this.veiculosPesadosLoc.add(veiculosPesadosLoc);
     }
 
-    // Gets
+    // Criando os Gets
     public int getIdVeiculoPesado() {
         return idVeiculoPesado;
     }
@@ -43,9 +50,11 @@ public class Veiculospesados extends Veiculo {
         return this.veiculosPesadosLoc;
     }
 
-    public static Veiculospesados getVeiculo(int id) throws Exception{
+    public static Veiculospesados getVeiculo(int id) throws Exception {
         return bdVeicPesados.getValor(id);
-     }
+    }
+
+    // Criando o toString para a impressão
 
     @Override
     public String toString() {

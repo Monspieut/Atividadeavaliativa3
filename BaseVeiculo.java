@@ -1,3 +1,7 @@
+package models;
+
+// Utilizando o método de interface
+
 public interface BaseVeiculo {
     public int Qtdlocacoesrealizadas();
 

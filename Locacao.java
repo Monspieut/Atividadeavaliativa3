@@ -1,16 +1,22 @@
-import java.sql.Time;
+package models;
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.Calendar;
 
+//Criação da classe Locação
+
 public class Locacao {
+
     private int idDaLocacao;
     private int idCliente;
     private Date dtLocacao;
     private Date dtDevolucao;
     private ArrayList<Veiculoslocados> veiculosLocados;
 
-    public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>();
+    public static BancoDeDados<Locacao> bdLocacoes = new BancoDeDados<>(); // Estabelecendo a conexão com o banco
+
+    // Criação do construtor da classe Locação
 
     public Locacao(int idDaLocacao, int idDocliente, Date dtLocacao, Date dtDevolucao) {
         this.idDaLocacao = idDaLocacao;
@@ -22,7 +28,7 @@ public class Locacao {
         bdLocacoes.insertValue(this);
     }
 
-    // Sets
+    // Criando os Sets
     public void setidDaLocacao(int idDaLocacao) {
         this.idDaLocacao = idDaLocacao;
     }
@@ -42,12 +48,8 @@ public class Locacao {
     public void setqtdVeiculosLocados(Veiculoslocados qtdVeiculosLocados) {
         this.veiculosLocados.add(qtdVeiculosLocados);
     }
-    // public void setLocacoes(Cliente cliente) {
-    // this.cliente.add(cliente); Tem que passar como ligação com locação setando
-    // cliente aqui
-    // }
 
-    // Gets
+    // Criando os Gets
     public int getidDaLocacao() {
         return idDaLocacao;
     }
@@ -67,6 +69,8 @@ public class Locacao {
     public ArrayList<Veiculoslocados> getqtdVeiculosLocados() {
         return this.veiculosLocados;
     }
+
+    // Criando o toString para a impressão
 
     @Override
     public String toString() {
@@ -103,10 +107,9 @@ public class Locacao {
     }
 
     public static Date CalcularDataLocacao(Date date, int qtdDeDias) { // Método para calcular por dias de locação --
-        // INCOMPLETO
-       
+
         Calendar calendario = Calendar.getInstance();
-        calendario.setTime(date); 
+        calendario.setTime(date);
         calendario.add(Calendar.DATE, qtdDeDias);
         return calendario.getTime();
     }
